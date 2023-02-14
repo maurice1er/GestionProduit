@@ -16,11 +16,14 @@ public class Product {
     private double prix;
     private double quantite;
 
+    private static int count = 0;
+    
     public Product() {
     }
 
-    public Product(int id, String nom, String reference, double prix, double quantite) {
-        this.id = id;
+    
+    public Product(String nom, String reference, double prix, double quantite) {
+        this.id = ++count;
         this.code = "P" + String.format("%03d", this.id);
         this.reference = reference;
         this.nom = nom;
@@ -32,9 +35,9 @@ public class Product {
         return id;
     }
 
-    public void setId(int id) {
+    /*public void setId(int id) {
         this.id = id;
-    }
+    }*/
 
     public String getCode() {
         return code;
@@ -48,9 +51,7 @@ public class Product {
         return reference;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
+    
 
     public String getNom() {
         return nom;

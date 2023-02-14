@@ -45,18 +45,19 @@ public class Main {
                 case 2:
                     Scanner scAdd = new Scanner(System.in);
                     System.out.println("# AJOUT");
-                    System.out.print("Entrez l'Id du produit ");
-                    int idAdd = scAdd.nextInt();
-                    System.out.print("Entrez le nom du produit ");
+                    /*System.out.print("Entrez l'Id du produit ");
+                    int idAdd = scAdd.nextInt();*/
+                    System.out.print("Entrez le nom du produit: ");
                     String nomAdd = scAdd.next();
-                    System.out.print("Entrez la reference du produit ");
+                    System.out.print("Entrez la reference du produit: ");
                     String refAdd = scAdd.next();
-                    System.out.print("Entrez le prix du produit ");
+                    System.out.print("Entrez le prix du produit: ");
                     double prixAdd = scAdd.nextDouble();
-                    System.out.print("Entrez la quantite du produit ");
+                    System.out.print("Entrez la quantite du produit: ");
                     double qteAdd = scAdd.nextDouble();
                     
-                    Product pAdd = new Product(idAdd, nomAdd, refAdd, prixAdd, qteAdd);
+                    // String nom, String reference, double prix, double quantite
+                    Product pAdd = new Product(nomAdd, refAdd, prixAdd, qteAdd);
                     
                     productList.addProduct(pAdd);
                     
@@ -82,6 +83,7 @@ public class Main {
                     String refUpdate = scUpdateByRef.next();
                     
                     Product pUpdateByRef = productList.searchProductByRef(refUpdate);
+                    
                     if(pUpdateByRef != null){
                         // afficher le sous menu
                         showSubUpdateMenu();
@@ -132,9 +134,12 @@ public class Main {
                                 break;
                             default:
                                 System.out.println("Mauvais choix");
+                                showMainMenu();
+                                break;
                         }
                         System.out.print(pUpdateByRef);
                     }
+                    break;
                     
                 case 5:
                     System.out.println("# Rechercher un produit par son nom");
